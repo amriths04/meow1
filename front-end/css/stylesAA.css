@@ -25,20 +25,38 @@ body {
 
 .menu-bar ul li {
   display: inline-block;
-  margin-right: 0vw;
+  margin-right: 1vw;
 }
 
 .menu-bar ul li:last-child {
-  margin-right: 0;
+  margin-right: 3vw;
 }
 
 .menu-bar ul li a {
   display: block;
   color: #fffcfc;
   text-decoration: none;
-  font-size: 3.5vh;
+  font-size: 2vh;
   position: relative;
   padding: 2vh 3vw;
+}
+.cont1 {
+  background-color: #5858b6; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add transition for smoother hover effect */
+}
+
+/* Add hover effect */
+.cont1:hover {
+  background-color: #45a049; /* Darker green */
 }
 
 .menu-bar ul li a:hover:after {
