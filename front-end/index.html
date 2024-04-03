@@ -13,11 +13,12 @@
     <div class="menu-bar">
 
       <ul>
-        <li><a href="mainwebpage.html">Home</a></li>
-        <li><a href="aboutus.html">About us</a></li>
-        <li><a href="login.html">Management</a></li>
+        <li><a href="mainwebpage.html">HOME</a></li>
+        <li><a href="aboutus.html">ABOUT US</a></li>
+        <li><a href="login.html">FACULTY LOGIN</a></li>
+        <li><a href="studentlogin.html">LOGIN</a></li>
         <li class="dropdown">
-          <a href="#" class="contact-link">Get In Touch</a>
+          <a href="#" class="contact-link">GET IN TOUCHE</a>
           <div class="dropdown-content">
             <div class="dropdown-content">
               <a href="mailto:amrithshet@icloud.com">Email: amrithshet@icloud.com</a>
@@ -49,6 +50,33 @@
 
 
 </body>
-
+<script>
+  function handleSubmit(event) {
+    event.preventDefault(); // Prevent the default form submission
+    console.log('req sent');
+    // Get form data
+    const formData = new FormData(event.target);
+    const username = formData.get('username');
+    const password = formData.get('password');
+    console.log('U P', username, password)
+    // Example: Send form data to a server
+    fetch('http://localhost:5000/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username, password })
+    });
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     console.log('Form submission successful:', data);
+    //     // Optionally, display a success message or redirect to another page
+    //   })
+    //   .catch(error => {
+    //     console.error('Error submitting form:', error);
+    //     // Optionally, display an error message to the user
+    //   });
+  }
+</script>
 
 </html>
