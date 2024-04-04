@@ -46,5 +46,37 @@
     </div>
 
   </div>
-</div></body></html>
+</div></body>
+<script>
+    function handleSubmit(event) {
+      event.preventDefault(); // Prevent the default form submission
+      
+      // Get form data
+      const formData = new FormData(event.target);
+      const username = formData.get('username');
+      const password = formData.get('password');
+      
+      // Send form data to the server
+      fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+      })
+      .then(response => {
+        if (response.ok) {
+          // Redirect to another page
+          window.location.href = 'dashboard.html'; // Change 'dashboard.html' to the desired URL
+        } else {
+          // Optionally, display an error message to the user
+          console.error('Login failed');
+        }
+      })
+      .catch(error => {
+        console.error('Error submitting form:', error);
+        // Optionally, display an error message to the user
+      });
+    }
+  </script></html>
 

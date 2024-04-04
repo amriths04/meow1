@@ -26,3 +26,32 @@
     //   });
   }
 </script>
+
+<script>
+  function handleSubmit(event) {
+    event.preventDefault(); // Prevent the default form submission
+    console.log('req sent');
+    // Get form data
+    const formData = new FormData(event.target);
+    const username = formData.get('username');
+    const password = formData.get('password');
+    console.log('U P', username, password)
+    // Example: Send form data to a server
+    fetch('http://localhost:5000/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username, password })
+    });
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     console.log('Form submission successful:', data);
+    //     // Optionally, display a success message or redirect to another page
+    //   })
+    //   .catch(error => {
+    //     console.error('Error submitting form:', error);
+    //     // Optionally, display an error message to the user
+    //   });
+  }
+</script>
