@@ -1,21 +1,34 @@
 body {
-    min-height: 97vh;
-    background: rgb(253, 219, 218);
-    background: linear-gradient(
-      0deg,
-      rgb(0, 0, 0) 20%,
-      rgb(173, 40, 40) 58%,
-      rgb(23, 36, 136) 98%
-    );
-    overflow: hidden;
+  background: linear-gradient(-45deg, #e3623b, #df1b1b, #2091ba, #15b48f,#e3623b);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  height: 100vh;
+  overflow: hidden;
   }
+  
+  @keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+  }
+  .user-icon img {
+    width: 40px; /* Adjust width as needed */
+    height: 40px; /* Adjust height as needed */
+    margin-right: 0px; /* Adjust margin as needed */
+}
   .menu-bar {
     display: flex;
     top: 0px;
     left: 0%;
     background-color: rgba(10, 9, 7, 0);
     width: 100%;
-    padding: 1rem;
+    
     justify-content: flex-end;
   }
   .menu-bar ul {
@@ -57,10 +70,7 @@ body {
     position: relative;
   }
   
-  .phone {
-    color: #fffcff;
-    font-size: 2.5vh;
-  }
+  
   
   .dropdown-content {
     display: none;
@@ -68,7 +78,7 @@ body {
     top: 100%;
     left: 0;
     background-color: #33333300;
-    min-width: 160px;
+    
     z-index: 1;
   }
   
@@ -87,6 +97,19 @@ body {
   .dropdown:hover .dropdown-content {
     display: block;
   }
+  .logout-btn {
+    background-color: #0e56e7;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.logout-btn:hover {
+    background-color: #f11101;
+}
   
 .content {
     text-align: center;
@@ -125,3 +148,17 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #555;
 }
+.submitupdate {
+  background-color: #115cdd;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.submitupdate:hover {
+  background-color: #19cd10;
+}
+

@@ -5,38 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faculty Dashboard</title>
     <link rel="stylesheet" href="css/facultyinsert.css">
+    <link href="https://cdn.jsdelivr.net/boxicons/2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
+    
     <div class="menu-bar">
-
         <ul>
-          <li><a href="homepage.html">HOME</a></li>
-          
-          <li class="dropdown">
-            <a href="#">LOGOUT</a>
-            <div class="dropdown-content">
-                <a href="homepage.html">Logout</a>
-            </div>
-        </li>
+            <li><a href="homepage.html">HOME</a></li>
+            <li class="dropdown">
+                <a href="#" class="user-icon"><img src="images/Professor-icon.png" alt="User Icon"></a>
+                  <div class="dropdown-content">
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                   
+                  </div>
+              </li>
+            
         </ul>
-      </div>
+    </div>
+    
     <div class="content">
         <form action="#" method="post">
             <form id="myForm" onsubmit="handleSubmit(event)">
                 <label for="username">MON</label>
-                <input type="text" id="username" name="username" placeholder="MONDAY" required><br><br>
+                <input type="text" id="username" name="username" placeholder="MONDAY" ><br><br>
                 <label for="option1">TUE</label>
-                <input type="text" id="option1" name="option1" placeholder="TUESDAY " required><br><br>
+                <input type="text" id="option1" name="option1" placeholder="TUESDAY " ><br><br>
                 <label for="option2">WED</label>
-                <input type="text" id="option2" name="option2" placeholder="WEDNESDAY" required><br><br>
+                <input type="text" id="option2" name="option2" placeholder="WEDNESDAY" ><br><br>
                 <label for="option3">THUR</label>
-                <input type="text" id="option3" name="option3" placeholder="THURSDAY"required><br><br>
+                <input type="text" id="option3" name="option3" placeholder="THURSDAY"><br><br>
                 <label for="option4">FRI</label>
-                <input type="text" id="option4" name="option4" placeholder="FRIDAY"required><br><br>
+                <input type="text" id="option4" name="option4" placeholder="FRIDAY"><br><br>
                 <label for="option5">SAT</label>
-                <input type="text" id="option5" name="option5" placeholder="SATURDAY"required><br><br>
+                <input type="text" id="option5" name="option5" placeholder="SATURDAY"><br><br>
                 
-                <button type="submit">Submit</button>
+                <button class ="submitupdate " type="submit">Submit</button>
             </form>
         
             <script>
