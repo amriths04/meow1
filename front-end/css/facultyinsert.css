@@ -84,7 +84,7 @@ body {
   
   .dropdown-content a {
     display: block;
-    padding: 1vh 1vw;
+    
     color: #fff;
     text-decoration: none;
   }
@@ -125,6 +125,14 @@ label {
     display: block;
     margin-bottom: 5px;
 }
+#usernameDisplay {
+  display: block;
+  color: #fffcfc;
+  text-decoration: none;
+  font-size: 2vh;
+  position: relative;
+  padding: 1vh 1vw;
+}
 
 input[type="text"] {
     width: 300px;
@@ -160,5 +168,31 @@ input[type="submit"]:hover {
 
 .submitupdate:hover {
   background-color: #19cd10;
+}
+label {
+  display: inline-block;
+  width: 80px; /* Adjust as needed */
+  text-align: right;
+  margin-right: 0px; /* Adjust as needed */
+}
+
+input[type="time"] {
+  width: 100px; /* Adjust as needed */
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.5); /* Adjust the opacity as needed */
+  border: 2px solid black; /* Border around the container */
+  padding: 30px;
+  border-radius: 20px;
+}
+
+form {
+  text-align: center;
 }
 

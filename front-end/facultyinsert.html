@@ -12,9 +12,13 @@
     <div class="menu-bar">
         <ul>
             <li><a href="homepage.html">HOME</a></li>
+            <li><div id="usernameDisplay"></div></li>
+            
             <li class="dropdown">
+                
                 <a href="#" class="user-icon"><img src="images/Professor-icon.png" alt="User Icon"></a>
                   <div class="dropdown-content">
+                    <div id="usernameDisplay"></div>
                     <button class="logout-btn" onclick="logout()">Logout</button>
                    
                   </div>
@@ -23,68 +27,82 @@
         </ul>
     </div>
     
-    <div class="content">
-        <form action="#" method="post">
-            <form id="myForm" onsubmit="handleSubmit(event)">
-                <label for="username">MON</label>
-                <input type="text" id="username" name="username" placeholder="MONDAY" ><br><br>
-                <label for="option1">TUE</label>
-                <input type="text" id="option1" name="option1" placeholder="TUESDAY " ><br><br>
-                <label for="option2">WED</label>
-                <input type="text" id="option2" name="option2" placeholder="WEDNESDAY" ><br><br>
-                <label for="option3">THUR</label>
-                <input type="text" id="option3" name="option3" placeholder="THURSDAY"><br><br>
-                <label for="option4">FRI</label>
-                <input type="text" id="option4" name="option4" placeholder="FRIDAY"><br><br>
-                <label for="option5">SAT</label>
-                <input type="text" id="option5" name="option5" placeholder="SATURDAY"><br><br>
-                
-                <button class ="submitupdate " type="submit">Submit</button>
-            </form>
-        
-            <script>
-                function handleSubmit(event) {
-                    event.preventDefault(); // Prevent the default form submission
-                    
-                    // Get form data
-                    const formData = new FormData(event.target);
-                    const username = formData.get('username');
-                    const option1 = formData.get('option1');
-                    const option2 = formData.get('option2');
-                    const option3 = formData.get('option3');
-                    const option4 = formData.get('option4');
-                    const option5 = formData.get('option5');
-                    
-                    
-                    // Send form data to the server
-                    fetch('http://localhost:5000/register', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ 
-                            username,
-                            option1,
-                            option2,
-                            option3,
-                            option4,
-                            option5,
-                        })
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            console.log('Form submission successful');
-                            // Optionally, display a success message or redirect to another page
-                        } else {
-                            console.error('Form submission failed');
-                            // Optionally, display an error message to the user
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error submitting form:', error);
-                        // Optionally, display an error message to the user
-                    });
-                }
-            </script>
+    <div class="container">
+        <form id="myForm">
+            <label for="startTime">Start Time</label>
+            <label for="endTime">End Time</label><br><br>
+            
+            <label for="option0">MONDAY</label>
+            <input type="time" id="option0" name="option0" placeholder="Start Time" >
+            <input type="time" id="option0end" name="option0end" placeholder="End Time" ><br><br>
+    
+            <label for="option1">TUESDAY</label>
+            <input type="time" id="option1" name="option1" placeholder="Start Time" >
+            <input type="time" id="option1end" name="option1end" placeholder="End Time" ><br><br>
+    
+            <label for="option2">WEDNESDAY</label>
+            <input type="time" id="option2" name="option2" placeholder="Start Time" >
+            <input type="time" id="option2end" name="option2end" placeholder="End Time" ><br><br>
+    
+            <label for="option3">THURSDAY</label>
+            <input type="time" id="option3" name="option3" placeholder="Start Time" >
+            <input type="time" id="option3end" name="option3end" placeholder="End Time" ><br><br>
+    
+            <label for="option4">FRIDAY</label>
+            <input type="time" id="option4" name="option4" placeholder="Start Time" >
+            <input type="time" id="option4end" name="option4end" placeholder="End Time" ><br><br>
+    
+            <label for="option5">SATURDAY</label>
+            <input type="time" id="option5" name="option5" placeholder="Start Time" >
+            <input type="time" id="option5end" name="option5end" placeholder="End Time" ><br><br>
+    
+            <button class="submitupdate" type="submit">UPDATE</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const username = urlParams.get('username');
+
+            // Display the username in the top menu bar or wherever needed
+            const usernameDisplay = document.getElementById('usernameDisplay');
+            usernameDisplay.textContent = `WELCOME, ${username}!`;
+        });
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('myForm');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                // Get login username from URL query parameter (you need to replace this with your own method)
+                const urlParams = new URLSearchParams(window.location.search);
+                const username = urlParams.get('username');
+
+                // Prepare data to send
+                const formData = new FormData(form);
+                formData.append('username', username);
+
+                // Send data to backend server
+                fetch('https://your-backend-server-url.com/submit-form', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    console.log('Form data sent successfully:', data);
+                    // Handle response if needed
+                })
+                .catch(error => {
+                    console.error('Error sending form data:', error);
+                    // Handle error if needed
+                });
+            });
+        });
+    </script>
         </body>
 </html>

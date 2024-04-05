@@ -118,15 +118,19 @@ header {
     font-size: 129px;
     color: #050a3f;
     top: 100px;
+ 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow to the text */
   
   }
+ 
+ 
   .welcome{
     font-family: Georgia, 'Times New Roman', Times, serif;
     position:relative;
     font-weight: 400;
     font-size: 49px;
-    color: #33c2de;
-    top: 200px;
+    color: #c5b5b5;
+    top: 220px;
     left: 200px;
   
   }
